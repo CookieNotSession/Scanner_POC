@@ -28,6 +28,7 @@ struct website: Decodable {
 class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var name: String!
 
+    @IBOutlet weak var content: UILabel!
     @IBOutlet weak var square: UIImageView!
     var video = AVCaptureVideoPreviewLayer()
     
@@ -82,11 +83,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
                     //let i = s?.index((s?.startIndex)!, offsetBy: 15)
                     let slice = s?.prefix(15)
                     let myString = String(slice!)
-                    let alert = UIAlertController(title: "QR Code", message: myString, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Retake", style: .default, handler: nil))
-                    alert.addAction(UIAlertAction(title: "Copy", style: .default, handler: { (nil) in
-                        UIPasteboard.general.string = object.stringValue
-                    }))
+                    //Api
                     let jsonUrlStringheader = "https://us-central1-bluefet-einvoice-poc-214217.cloudfunctions.net/qrcode-fake/"
                     let jsonUrlString = jsonUrlStringheader + myString
                     guard let url = URL(string: jsonUrlString) else { return }
@@ -97,15 +94,28 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
                         
                         guard let data = data else { return }
                         
-                                    let dataAsString = String(data: data, encoding: .utf8)
-                                    print(dataAsString)
+                        let dataAsString = String(data: data, encoding: .utf8)
+                        print(dataAsString)
+                        let dataString = String(dataAsString!)
+                        //self.content.text = dataString
+                        let alert = UIAlertController(title: "QR Code", message: dataString, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Retake", style: .default, handler: nil))
+                        alert.addAction(UIAlertAction(title: "Copy", style: .default, handler: { (nil) in
+                            UIPasteboard.general.string = object.stringValue
+                        }))
+                        self.present(alert, animated: true, completion: nil)
                         
                         }.resume()
-                    present(alert, animated: true, completion: nil)
+                    //Alert
                 }
             }
         }
     }
+    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //var detailController = segue.destination as! detailViewController
+        //detailController.dataString = dataAsString
+    //}
+    
     
     
     
