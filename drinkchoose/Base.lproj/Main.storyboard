@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8R4-yP-0kp">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--飲料想喝哪一家？-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="飲料想喝哪一家？" id="BYZ-38-t0r" customClass="drinkViewController" customModule="drinkchoose" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn1" translatesAutoresizingMaskIntoConstraints="NO" id="c03-5K-6Ga">
+                                <rect key="frame" x="0.0" y="230" width="376" height="206"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIZ-Tb-Jmj">
+                                <rect key="frame" x="-28" y="233" width="376" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <inset key="titleEdgeInsets" minX="132" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="QR Code Scanner">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="0ah-aB-nnF" kind="show" id="JMo-V0-xZW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="HOME" id="6P1-Sw-KYH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1501.5999999999999" y="792.95352323838085"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="9hF-sN-olq">
+            <objects>
+                <viewController id="SxM-EN-h2c" customClass="detailViewController" customModule="drinkchoose" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vfp-9h-m9R"/>
+                        <viewControllerLayoutGuide type="bottom" id="TuD-Ch-jDc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WmG-2s-AxY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ULs-yf-ukX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="whh-k1-4EC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3660" y="793"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rYz-gq-dpr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8R4-yP-0kp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HhH-cA-Hlq">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2Bu-e4-Weg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zwu-Ok-zHk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="433" y="793"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Uwc-SJ-cD3">
+            <objects>
+                <viewController id="0ah-aB-nnF" customClass="ViewController" customModule="QRReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GKs-qH-rRe"/>
+                        <viewControllerLayoutGuide type="bottom" id="D9n-L7-fWP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iYe-mG-JEs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="square.png" translatesAutoresizingMaskIntoConstraints="NO" id="g5d-F3-8e9">
+                                <rect key="frame" x="-55" y="91" width="485" height="485"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="9WV-BW-Sfe"/>
+                                    <constraint firstAttribute="height" constant="320" id="uj4-Md-d4N"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="g5d-F3-8e9" firstAttribute="centerY" secondItem="iYe-mG-JEs" secondAttribute="centerY" id="Mkl-20-5L1"/>
+                            <constraint firstItem="g5d-F3-8e9" firstAttribute="centerX" secondItem="iYe-mG-JEs" secondAttribute="centerX" id="Un2-3I-hLx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="square" destination="g5d-F3-8e9" id="skO-s8-BfH"/>
+                        <segue destination="SxM-EN-h2c" kind="show" identifier="goDetail" id="mMO-Ah-MXx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mkz-zN-gjJ" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2656.8000000000002" y="792.95352323838085"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="btn1" width="400" height="400"/>
+        <image name="square.png" width="1000" height="1000"/>
+    </resources>
+</document>
