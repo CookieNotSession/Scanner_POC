@@ -10,11 +10,12 @@ import UIKit
 
 class detailViewController: UIViewController {
     
-    @IBOutlet weak var output: UILabel!
-    var contentString = String()
-    
+    @IBOutlet weak var content: UILabel!
+    var detail = UIPasteboard.general.string
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        content.text = detail
+        content.numberOfLines = 0
 }
 }
+

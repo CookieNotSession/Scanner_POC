@@ -28,10 +28,9 @@ struct website: Decodable {
 class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var name: String!
 
-    @IBOutlet weak var content: UILabel!
     @IBOutlet weak var square: UIImageView!
     var video = AVCaptureVideoPreviewLayer()
-    
+    var globalvar = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         //Api
@@ -87,7 +86,6 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
                     let jsonUrlStringheader = "https://us-central1-bluefet-einvoice-poc-214217.cloudfunctions.net/qrcode-fake/"
                     let jsonUrlString = jsonUrlStringheader + myString
                     guard let url = URL(string: jsonUrlString) else { return }
-                    
                     URLSession.shared.dataTask(with: url) { (data, response, err) in
                         //perhaps check err
                         //also perhaps check response status 200 OK
@@ -99,31 +97,39 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
                         let dataString = String(dataAsString!)
                         //self.content.text = dataString
                         let alert = UIAlertController(title: "QR Code", message: dataString, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Retake", style: .default, handler: nil))
-                        alert.addAction(UIAlertAction(title: "Copy", style: .default, handler: { (nil) in
-                            UIPasteboard.general.string = object.stringValue
+                        alert.addAction(UIAlertAction(title: "再拍一次", style: .default, handler: nil))
+                        //alert.addAction(UIAlertAction(title: "Copy", style: .default, handler: { (nil) in
+                            //UIPasteboard.general.string = dataAsString
+                        //}))
+                        self.globalvar = dataString!
+                        alert.addAction(UIAlertAction(title: "儲存發票", style: .default, handler:{ ACTION in
+                            UIPasteboard.general.string = dataAsString
+                            self.performSegue(withIdentifier: "godetail", sender: nil)
                         }))
+                        //alert.addAction(UIAlertAction(title:"OK", style: .default, handler:  { action in self.performSegue(withIdentifier: "mySegueIdentifier", sender: self) }))
+                        
                         self.present(alert, animated: true, completion: nil)
                         
                         }.resume()
                     //Alert
                 }
             }
+            //func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+                //var detailController = segue.destination as! detailViewController
+                //detailController.contentString = globalvar
+            //}
         }
     }
-    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //var detailController = segue.destination as! detailViewController
-        //detailController.dataString = dataAsString
-    //}
+
+
     
-    
-    
+
     
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
 }
 
