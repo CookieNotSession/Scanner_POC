@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  drinkchoose
+//  json
 //
-//  Created by yaya on 2016/11/24.
-//  Copyright © 2016年 yaya. All rights reserved.
+//  Created by ChouBingNan on 2018/8/23.
+//  Copyright © 2018年 ChouBingNan. All rights reserved.
 //
 
 import UIKit

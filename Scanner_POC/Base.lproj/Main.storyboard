@@ -12,7 +12,7 @@
         <!--HOME-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="HOME" id="BYZ-38-t0r" customClass="drinkViewController" customModule="drinkchoose" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="HOME" id="BYZ-38-t0r" customClass="drinkViewController" customModule="Scanner_POC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -53,7 +53,7 @@
         <!--Detail View Controller-->
         <scene sceneID="9hF-sN-olq">
             <objects>
-                <viewController id="SxM-EN-h2c" customClass="detailViewController" customModule="drinkchoose" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SxM-EN-h2c" customClass="detailViewController" customModule="Scanner_POC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vfp-9h-m9R"/>
                         <viewControllerLayoutGuide type="bottom" id="TuD-Ch-jDc"/>
@@ -102,7 +102,7 @@
         <!--View Controller-->
         <scene sceneID="Uwc-SJ-cD3">
             <objects>
-                <viewController id="0ah-aB-nnF" customClass="ViewController" customModule="drinkchoose" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0ah-aB-nnF" customClass="ViewController" customModule="Scanner_POC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GKs-qH-rRe"/>
                         <viewControllerLayoutGuide type="bottom" id="D9n-L7-fWP"/>
@@ -111,8 +111,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="square.png" translatesAutoresizingMaskIntoConstraints="NO" id="g5d-F3-8e9">
-                                <rect key="frame" x="-55" y="91" width="485" height="485"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="square.png" translatesAutoresizingMaskIntoConstraints="NO" id="g5d-F3-8e9">
+                                <rect key="frame" x="78" y="225" width="218" height="217"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="9WV-BW-Sfe"/>
                                     <constraint firstAttribute="height" constant="320" id="uj4-Md-d4N"/>

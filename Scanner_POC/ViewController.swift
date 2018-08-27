@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  QRReader
+//  json
 //
-//  Created by Sebastian Hette on 17.07.2017.
-//  Copyright © 2017 MAGNUMIUM. All rights reserved.
+//  Created by ChouBingNan on 2018/8/23.
+//  Copyright © 2018 ChouBingNan. All rights reserved.
 //
 
 import UIKit
@@ -33,10 +33,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var globalvar = String()
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Api
 
-        
-        // Do any additional setup after loading the view, typically from a nib.
         
         //Creating session
         let session = AVCaptureSession()
@@ -78,46 +75,35 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             {
                 if object.type == AVMetadataObjectTypeQRCode
                 {
-                    let s = object.stringValue
-                    //let i = s?.index((s?.startIndex)!, offsetBy: 15)
-                    let slice = s?.prefix(15)
-                    let myString = String(slice!)
-                    //Api
+                    let s = object.stringValue  //get camera information and pass to string s
+                    let slice = s?.prefix(15)  //slice pre 15 number for invoice to call the api
+                    let myString = String(slice!) // because alert message can't put the "SubString" type , so type casting to String Type
+                    
+                    //Start to call Api
                     let jsonUrlStringheader = "https://us-central1-bluefet-einvoice-poc-214217.cloudfunctions.net/qrcode-fake/"
-                    let jsonUrlString = jsonUrlStringheader + myString
+                    let jsonUrlString = jsonUrlStringheader + myString // Concatenate url and myString we scan
                     guard let url = URL(string: jsonUrlString) else { return }
                     URLSession.shared.dataTask(with: url) { (data, response, err) in
-                        //perhaps check err
-                        //also perhaps check response status 200 OK
                         
                         guard let data = data else { return }
                         
                         let dataAsString = String(data: data, encoding: .utf8)
-                        print(dataAsString)
+                        //print(dataAsString)
                         let dataString = String(dataAsString!)
-                        //self.content.text = dataString
+                        
+                        // Scan success and pop up alert
                         let alert = UIAlertController(title: "QR Code", message: dataString, preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "再拍一次", style: .default, handler: nil))
-                        //alert.addAction(UIAlertAction(title: "Copy", style: .default, handler: { (nil) in
-                            //UIPasteboard.general.string = dataAsString
-                        //}))
-                        self.globalvar = dataString!
                         alert.addAction(UIAlertAction(title: "儲存發票", style: .default, handler:{ ACTION in
-                            UIPasteboard.general.string = dataAsString
-                            self.performSegue(withIdentifier: "godetail", sender: nil)
+                            UIPasteboard.general.string = dataAsString // pass the dataAsString to Pasteboard
+                            self.performSegue(withIdentifier: "godetail", sender: nil) //trigger "儲存發票" button and navigate to next page
                         }))
-                        //alert.addAction(UIAlertAction(title:"OK", style: .default, handler:  { action in self.performSegue(withIdentifier: "mySegueIdentifier", sender: self) }))
-                        
                         self.present(alert, animated: true, completion: nil)
                         
                         }.resume()
                     //Alert
                 }
             }
-            //func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-                //var detailController = segue.destination as! detailViewController
-                //detailController.contentString = globalvar
-            //}
         }
     }
 

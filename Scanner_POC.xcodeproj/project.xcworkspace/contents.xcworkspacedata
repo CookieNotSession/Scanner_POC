@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:drinkchoose.xcodeproj">
+      location = "self:/Users/cookiehiker/Scanner_POC/Scanner_POC.xcodeproj">
    </FileRef>
 </Workspace>
