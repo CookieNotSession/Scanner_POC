@@ -90,7 +90,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
                         let dataAsString = String(data: data, encoding: .utf8)
                         //print(dataAsString)
                         let dataString = String(dataAsString!)
-                        
+
                         // Scan success and pop up alert
                         let alert = UIAlertController(title: "QR Code", message: dataString, preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "再拍一次", style: .default, handler: nil))
