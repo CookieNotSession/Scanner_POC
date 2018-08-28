@@ -72,7 +72,7 @@ class detailViewController: UIViewController {
                 }
             }
             let alert = UIAlertController(title: "Alert", message: "儲存成功!", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "關閉此通知", style: .default, handler: nil))
             alert.addAction(UIAlertAction(title: "再掃一張", style: .default, handler:{ ACTION in
                 self.performSegue(withIdentifier: "backcamera", sender: nil) //trigger "儲存發票" button and navigate to next page
             }))
