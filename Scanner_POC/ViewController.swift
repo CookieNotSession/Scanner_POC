@@ -93,8 +93,8 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
                         // Scan success and pop up alert
                         let alert = UIAlertController(title: "QR Code", message: dataString, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "再拍一次", style: .default, handler: nil))
-                        alert.addAction(UIAlertAction(title: "儲存發票", style: .default, handler:{ ACTION in
+                        alert.addAction(UIAlertAction(title: "再掃一次", style: .default, handler: nil))
+                        alert.addAction(UIAlertAction(title: "下一步", style: .default, handler:{ ACTION in
                             UIPasteboard.general.string = dataAsString // pass the dataAsString to Pasteboard
                             self.performSegue(withIdentifier: "godetail", sender: nil) //trigger "儲存發票" button and navigate to next page
                         }))

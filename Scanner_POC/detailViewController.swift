@@ -25,6 +25,7 @@ struct file: Decodable {
 
 class detailViewController: UIViewController {
     // Parsing Json pass from Pasteboard
+
     @IBAction func onPostTapped(_ sender: Any) {
         //parsing
         func convertToDictionary(text: String) -> [String: Any]? {
@@ -41,9 +42,9 @@ class detailViewController: UIViewController {
         let str = detail
         
         let dict = convertToDictionary(text: str!)
-        var aaa = dict!["invPeriod"]
-        print(dict!["invNum"])
-        print(dict!["invPeriod"])
+        //let aaa = dict?.description
+        //print(dict!["invNum"])
+        //print(dict!["invPeriod"])
         
         let parameters = ["{ \"phoneNo\": \"0912345678\", \"invNum\": \"\(dict!["invNum"])\", \"invPeriod\": \"\(dict!["invPeriod"])\", \"invoiceTime\": \"\(dict!["invoiceTime"])\", \"invDonatable\": \(dict!["invDonatable"]), \"sellerBan\": \"\(dict!["sellerBan"])\", \"sellerName\": \"\(dict!["sellerName"])\", \"sellerAddress\": \"\(dict!["sellerAddress"])\"}" ]
         
@@ -70,9 +71,17 @@ class detailViewController: UIViewController {
                     print(error)
                 }
             }
-            
+            let alert = UIAlertController(title: "Alert", message: "儲存成功!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "再掃一張", style: .default, handler:{ ACTION in
+                self.performSegue(withIdentifier: "backcamera", sender: nil) //trigger "儲存發票" button and navigate to next page
+            }))
+            alert.addAction(UIAlertAction(title: "結束", style: .default, handler:{ ACTION in
+                self.performSegue(withIdentifier: "backhome", sender: nil) //trigger "儲存發票" button and navigate to next page
+            }))
+            self.present(alert, animated: true, completion: nil)
             }.resume()
-        
+
     }
     
     @IBOutlet weak var content: UILabel!

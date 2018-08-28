@@ -72,7 +72,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h63-eA-PIy">
                                 <rect key="frame" x="-35" y="357" width="464" height="415"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="POST">
+                                <state key="normal" title="紀錄紙本發票">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -86,6 +86,8 @@
                     <navigationItem key="navigationItem" id="ULs-yf-ukX"/>
                     <connections>
                         <outlet property="content" destination="7TU-7J-VNw" id="lfp-1B-M0p"/>
+                        <segue destination="0ah-aB-nnF" kind="show" identifier="backcamera" id="V0l-uU-OmY"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="backhome" id="DLd-P3-dIj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="whh-k1-4EC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -149,6 +151,10 @@
     <resources>
         <image name="bg5" width="736" height="1308"/>
         <image name="circle.png" width="512" height="512"/>
-        <image name="square.png" width="1000" height="1000"/>
+        <image name="square.png" width="276" height="276"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="V0l-uU-OmY"/>
+        <segue reference="DLd-P3-dIj"/>
+    </inferredMetricsTieBreakers>
 </document>
