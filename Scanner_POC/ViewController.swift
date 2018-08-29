@@ -80,7 +80,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
                     let myString = String(slice!) // because alert message can't put the "SubString" type , so type casting to String Type
                     
                     //Start to call Api
-                    let jsonUrlStringheader = "https://us-central1-bluefet-einvoice-poc-214217.cloudfunctions.net/qrcode-fake/"
+                    let jsonUrlStringheader = "api"
                     let jsonUrlString = jsonUrlStringheader + myString // Concatenate url and myString we scan
                     guard let url = URL(string: jsonUrlString) else { return }
                     URLSession.shared.dataTask(with: url) { (data, response, err) in
